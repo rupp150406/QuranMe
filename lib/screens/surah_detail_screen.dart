@@ -7,10 +7,10 @@ class SurahDetailScreen extends StatefulWidget {
   const SurahDetailScreen({super.key});
 
   @override
-  _SurahDetailScreenState createState() => _SurahDetailScreenState();
+  SurahDetailScreenState createState() => SurahDetailScreenState();
 }
 
-class _SurahDetailScreenState extends State<SurahDetailScreen> {
+class SurahDetailScreenState extends State<SurahDetailScreen> {
   final AudioPlayer _audioPlayer = AudioPlayer();
   bool _isPlaying = false;
 

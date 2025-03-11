@@ -48,7 +48,12 @@ class ProfileScreen extends StatelessWidget {
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.grey.withOpacity(0.2),
+                    color: Color.fromRGBO(
+                      128,
+                      128,
+                      128,
+                      0.2,
+                    ), // Grey color with 20% opacity
                     spreadRadius: 2,
                     blurRadius: 5,
                     offset: const Offset(0, 3),

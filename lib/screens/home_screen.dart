@@ -11,10 +11,10 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  HomeScreenState createState() => HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreenState extends State<HomeScreen> {
   final ApiService _apiService = ApiService();
   List<Surah> _randomSurahs = [];
   List<Doa> _doas = [];
@@ -48,21 +48,25 @@ class _HomeScreenState extends State<HomeScreen> {
         }
       }
 
-      setState(() {
-        _randomSurahs = randomSurahs;
-        _doas = doas;
-        _isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          _randomSurahs = randomSurahs;
+          _doas = doas;
+          _isLoading = false;
+        });
+      }
     } catch (e) {
-      setState(() {
-        _isLoading = false;
-      });
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Error: ${e.toString()}'),
-          backgroundColor: Colors.red,
-        ),
-      );
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Error: ${e.toString()}'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
     }
   }
 
